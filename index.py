@@ -40,7 +40,8 @@ def find_movie_from_list(movie_list):
 application = tornado.web.Application([
 										(r"/", MainHandler)
 										],
-										debug=True)
+										debug=True,
+										static_path='static')
 
 if __name__ == "__main__":
 	application.listen(8888)

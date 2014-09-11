@@ -1,13 +1,30 @@
  <html>
  <head>
  	<title>From Rotten To Worse</title>
+ 	<script type="text/javascript" src="{{static_url('index.js')}}"></script>
+ 	<link rel="stylesheet" href="{{static_url('style.css')}}" />
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  </head>
  <body>
- 	 <img src="http://image.tmdb.org/t/p/w154{{bad_movie['poster_path']}}">  
-	 <img src="http://image.tmdb.org/t/p/w154{{worst_movie['poster_path']}}"> <br><br>
 
-	 <badmovie></badmovie>
-	 <worstmovie></worstmovie>
+	 <badmovie>
+	 	<img src="http://image.tmdb.org/t/p/w154{{bad_movie['poster_path']}}"> <br>
+	 	Title: {{ bad_movie['title'] }} <br><br>
+	 	Plot: {{ bad_movie['overview'] }} <br><br>
+	 	Cast: 	{% for i in range(0, 4) %} 
+			 		{{ bad_movie['casts'][0]['cast'][i]['name'] }},
+			 	{% end %} <br><br>
+
+	 </badmovie>
+	 <br>
+	 <worstmovie>
+	 	<img src="http://image.tmdb.org/t/p/w154{{worst_movie['poster_path']}}"> <br>
+	 	Title: {{ worst_movie['title'] }} <br><br>
+	 	Plot: {{ worst_movie['overview'] }} <br><br>
+	 	Cast: 	{% for i in range(0, 4) %} 
+	 				{{ worst_movie['casts'][0]['cast'][i]['name'] }},
+	 			{% end %} <br><br>
+	 </worstmovie>
 
 
  
